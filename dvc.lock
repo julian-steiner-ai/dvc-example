@@ -20,3 +20,16 @@ stages:
     - path: data/train.csv
       md5: 396a04604ae1b24bbf1d5b692a1debb7
       size: 25967
+  xgboost_training:
+    cmd: python src/xgboost_train.py
+    deps:
+    - path: data/train.csv
+      md5: 396a04604ae1b24bbf1d5b692a1debb7
+      size: 25967
+    - path: src/xgboost_train.py
+      md5: 6e4540da220146a46f8208e388fe66b2
+      size: 482
+    outs:
+    - path: models/xgboost.joblib
+      md5: f4f5f686fabf951b3cd99f9f6639351b
+      size: 424748
