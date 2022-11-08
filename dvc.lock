@@ -1,0 +1,22 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python src/prepare.py data/ENB2012_data.csv
+    deps:
+    - path: data/ENB2012_data.csv
+      md5: ae7a74847b1bed3997bba51bb0dfa431
+      size: 39946
+    - path: src/prepare.py
+      md5: 05f9b8d59e60800771367c2b695de159
+      size: 628
+    params:
+      params.yaml:
+        prepare.test_size: 0.3
+        seed: 1337
+    outs:
+    - path: data/test.csv
+      md5: d4033345de66be0b2b85fa449dd3e088
+      size: 11225
+    - path: data/train.csv
+      md5: 396a04604ae1b24bbf1d5b692a1debb7
+      size: 25967
