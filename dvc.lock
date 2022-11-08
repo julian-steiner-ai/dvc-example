@@ -20,3 +20,33 @@ stages:
     - path: data/train.csv
       md5: 396a04604ae1b24bbf1d5b692a1debb7
       size: 25967
+  catboost_training:
+    cmd: python src/catboost_train.py
+    deps:
+    - path: data/train.csv
+      md5: 396a04604ae1b24bbf1d5b692a1debb7
+      size: 25967
+    - path: src/catboost_train.py
+      md5: a5d2289e78a1d86c8502a6f38febba05
+      size: 494
+    outs:
+    - path: models/catboost.joblib
+      md5: c0509a26d7df2e6bd88dd4af2002de8b
+      size: 1050183
+  catboost_evaluation:
+    cmd: python src/evaluate.py models/catboost.joblib
+    deps:
+    - path: data/test.csv
+      md5: d4033345de66be0b2b85fa449dd3e088
+      size: 11225
+    - path: src/evaluate.py
+      md5: 38f760cb19305107ae39fd18251ca1df
+      size: 1148
+    outs:
+    - path: metrics/metrics.json
+      md5: 53d6b429870dfcfb49fb5b0841f3a759
+      size: 84
+    - path: plots
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0

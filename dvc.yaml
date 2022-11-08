@@ -10,3 +10,19 @@ stages:
     outs:
     - data/test.csv
     - data/train.csv
+  catboost_training:
+    cmd: python src/catboost_train.py
+    deps:
+    - data/train.csv
+    - src/catboost_train.py
+    outs:
+    - models/catboost.joblib
+  catboost_evaluation:
+    cmd: python src/evaluate.py models/catboost.joblib
+    deps:
+    - data/test.csv
+    - src/evaluate.py
+    metrics:
+    - metrics/metrics.json
+    plots:
+    - plots
