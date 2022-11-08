@@ -34,8 +34,8 @@ y_test = test_df[train_and_evaluate_params['y_column']]
 y_pred = clf.predict(X_test)
 
 results = {
-    'f1': f1_score(y_test, y_pred),
-    'accuray': accuracy_score(y_test, y_pred),
+    'mean_squared_error': mean_squared_error(y_test, y_pred),
+    'mean_absolute_error': mean_absolute_error(y_test, y_pred),
 }
 
 json.dump(results, open(os.path.join('metrics', 'metrics.json'), 'w', encoding='UTF-8'))
