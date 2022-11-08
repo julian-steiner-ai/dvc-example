@@ -1,0 +1,15 @@
+seed: 1337
+
+prepare:
+  test_size: 0.30
+  column_names: 
+      'X1': 'RelativeCompactness'
+      'X2': 'SurfaceArea'
+      'X3': 'WallArea'
+      'X4': 'RoofArea'
+      'X5': 'OverallHeight'
+      'X6': 'Orientation'
+      'X7': 'GlazingArea'
+      'X8': 'GlazingAreaDistribution'
+      'Y1': 'HeatingLoad'
+      'Y2': 'CoolingLoad'
