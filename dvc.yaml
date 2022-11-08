@@ -3,4 +3,4 @@ stages:
     cmd: prepare.split -d src/prepare.py -d data/ENB2012_data.csv -o data/prepared
       python src/prepare.py data/ENB2012_data.csv
     params:
-    - prepare-seed
+    - prepare.seed
