@@ -8,4 +8,5 @@ stages:
     - data/ENB2012_data.csv
     - src/prepare.py
     outs:
-    - data/prepared
+    - data/test.csv
+    - data/train.csv
