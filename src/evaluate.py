@@ -7,7 +7,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 from joblib import load
-from sklearn.metrics import accuracy_score, f1_score, plot_confusion_matrix, plot_roc_curve
+from sklearn.metrics import mean_squared_error, mean_absolute_error
 
 if len(sys.argv) != 2:
     sys.stderr.write("Arguments error. Usage:\n")
@@ -34,8 +34,8 @@ y_test = test_df[train_and_evaluate_params['y_column']]
 y_pred = clf.predict(X_test)
 
 results = {
-    'f1': f1_score(y_test, y_pred),
-    'accuray': accuracy_score(y_test, y_pred),
+    'mean_squared_error': mean_squared_error(y_test, y_pred),
+    'mean_absolute_error': mean_absolute_error(y_test, y_pred),
 }
 
 json.dump(results, open('metrics/metrics.json', 'w', encoding='UTF-8'))
