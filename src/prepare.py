@@ -10,10 +10,10 @@ seed = params["seed"]
 test_size = prepare_stage_params["test_size"]
 column_names = prepare_stage_params["column_names"]
 
-data = pd.read_csv('data/ENB2012_data.csv', sep=';')
+data = pd.read_csv(os.path.join('data', 'ENB2012_data.csv'), sep=';')
 data = data.rename(columns=column_names)
 
 train_df, test_df = train_test_split(data, test_size=test_size, random_state=seed)
 
-train_df.to_csv('data/train.csv', index=False, sep=';')
-test_df.to_csv('data/test.csv', index=False, sep=';')
+train_df.to_csv(os.path.join('data', 'train.csv'), index=False, sep=';')
+test_df.to_csv(os.path.join('data', 'test.csv'), index=False, sep=';')
