@@ -26,7 +26,7 @@ for needed_directory in needed_directories:
 params = yaml.safe_load(open('params.yaml', encoding='UTF-8'))
 train_and_evaluate_params = params['train_and_evaluate']
 
-test_df = pd.read_csv('data/test.csv', sep=';')
+test_df = pd.read_csv(os.path.join('data', 'test.csv'), sep=';')
 
 X_test = test_df[train_and_evaluate_params['x_columns']]
 y_test = test_df[train_and_evaluate_params['y_column']]
@@ -38,4 +38,4 @@ results = {
     'mean_absolute_error': mean_absolute_error(y_test, y_pred),
 }
 
-json.dump(results, open('metrics/metrics.json', 'w', encoding='UTF-8'))
+json.dump(results, open(os.path.join('metrics', 'metrics.json'), 'w', encoding='UTF-8'))
