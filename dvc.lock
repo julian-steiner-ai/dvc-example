@@ -33,3 +33,20 @@ stages:
     - path: models/xgboost.joblib
       md5: f4f5f686fabf951b3cd99f9f6639351b
       size: 424748
+  xgboost_evaluation:
+    cmd: python src/evaluate.py models/xgboost.joblib
+    deps:
+    - path: data/test.csv
+      md5: d4033345de66be0b2b85fa449dd3e088
+      size: 11225
+    - path: src/evaluate.py
+      md5: 92659d5fa3e534896894847a055a092a
+      size: 1150
+    outs:
+    - path: metrics/metrics.json
+      md5: 1ef2c1ac79e099f296858de8c02998d6
+      size: 86
+    - path: plots
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0

@@ -17,3 +17,12 @@ stages:
     - src/xgboost_train.py
     outs:
     - models/xgboost.joblib
+  xgboost_evaluation:
+    cmd: python src/evaluate.py models/xgboost.joblib
+    deps:
+    - data/test.csv
+    - src/evaluate.py
+    metrics:
+    - metrics/metrics.json
+    plots:
+    - plots
