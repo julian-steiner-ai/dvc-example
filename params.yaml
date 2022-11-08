@@ -13,3 +13,15 @@ prepare:
       'X8': 'GlazingAreaDistribution'
       'Y1': 'HeatingLoad'
       'Y2': 'CoolingLoad'
+
+train_and_evaluate:
+  x_columns:
+    - 'RelativeCompactness'
+    - 'SurfaceArea'
+    - 'WallArea'
+    - 'RoofArea'
+    - 'OverallHeight'
+    - 'Orientation'
+    - 'GlazingArea'
+    - 'GlazingAreaDistribution'
+  y_column: 'HeatingLoad'
